@@ -1,0 +1,50 @@
+{
+    "user1": [
+        {
+            "account_id": 1,
+            "account_name": "Account 1",
+            "balance": 1000
+        }
+    ],
+    "user2": [
+        {
+            "account_id": 1,
+            "account_name": "Account 1",
+            "balance": 500
+        }
+    ],
+    "sabari": [
+        {
+            "account_id": 2,
+            "account_name": "test2",
+            "balance": 500.0
+        }
+    ],
+    "testuser": [],
+    "sunil": [
+        {
+            "account_id": 1,
+            "account_name": "kl",
+            "balance": 606.0,
+            "transactions": [
+                {
+                    "type": "deposit",
+                    "amount": 100.0,
+                    "timestamp": "2025-02-12 20:54"
+                }
+            ]
+        },
+        {
+            "account_id": 2,
+            "account_name": "test",
+            "balance": 350.0,
+            "transactions": [
+                {
+                    "type": "deposit",
+                    "amount": 250.0,
+                    "timestamp": "2025-02-12 21:24"
+                }
+            ]
+        }
+    ]
+}

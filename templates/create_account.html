@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="create-account-container">
+        <h1>Create New Account</h1>
+        <form action="/create_account" method="POST">
+            <input type="text" name="account_name" placeholder="Account Name" required>
+            <input type="number" name="initial_balance" placeholder="Initial Balance" required>
+            <button type="submit">Create Account</button>
+        </form>
+    </div>
+</body>
+</html>

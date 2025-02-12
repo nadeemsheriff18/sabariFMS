@@ -1,0 +1,11 @@
+{
+    "testuser": {
+        "password": "pbkdf2:sha256:260000$8zakYo8oSvy4tJZe$13c54604f4a2f27510fcf8bb2d7e01c70c79090e7d2f4ccc5713fec46221a5cf"
+    },
+    "sabari": {
+        "password": "pbkdf2:sha256:260000$4JXoZIFXQzpQvl7a$3d1c75cb1decf2fa0a5fa0b12e99f644e9ef7aa054049a41becfde93225913f9"
+    },
+    "sunil": {
+        "password": "pbkdf2:sha256:260000$JRwqgOfAB1GyEkGQ$35a647603d9f0a3b813dfa4262e2d2b3a7708c1c9f181975c09bef9bdfb9d0b8"
+    }
+}

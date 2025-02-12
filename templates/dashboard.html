@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="/" class="logo">FMS</a>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/create_account">Create Account</a></li>
+            <li><a href="/transaction_history">Transaction History</a></li>
+<li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+
+    <div class="dashboard-container">
+        <h1>Welcome, {{ session['user'] }}!</h1>
+
+        <div class="actions">
+            <a href="/create_account" class="btn">Create New Account</a>
+            <a href="/logout" class="btn btn-danger">Logout</a>
+        </div>
+
+        <h2>Your Accounts</h2>
+        <table class="accounts-table">
+            <thead>
+                <tr>
+                    <th>Account Name</th>
+                    <th>Balance</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for account in accounts %}
+                <tr>
+                    <td>{{ account.account_name }}</td>
+                    <td>Rs.{{ account.balance }}</td>
+                    <td>
+                        <a href="/transactions/{{ account.account_id }}" class="btn">Manage</a>
+                        <!-- Delete Button -->
+                        <form action="{{ url_for('delete_account', account_id=account.account_id) }}" method="POST" style="display:inline;">
+                            <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this account?');">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <footer class="footer">
+        &copy; 2025 FMS. All Rights Reserved.
+    </footer>
+</body>
+</html>

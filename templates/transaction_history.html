@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transaction History</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="/dashboard" class="logo">FMS</a>
+        <ul>
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Transaction History</h1>
+        
+        <form method="GET" action="/transaction_history">
+            <label for="account_id">Filter by Account:</label>
+            <select name="account_id" id="account_id">
+                <option value="">All Accounts</option>
+                {% for account in accounts %}
+                    <option value="{{ account.account_id }}" {% if selected_account == account.account_id %}selected{% endif %}>{{ account.account_name }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">Filter</button>
+        </form>
+
+        <table class="transactions-table">
+            <thead>
+                <tr>
+                    <th>Account Name</th>
+                    <th>Type</th>
+                    <th>Amount</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if transactions %}
+                    {% for transaction in transactions %}
+                    <tr>
+                        <td>{{ transaction.account_name }}</td>
+                        <td>{{ transaction.type }}</td>
+                        <td>Rs.{{ "{:.2f}".format(transaction.amount) }}</td>
+                        <td>{{ transaction.date }}</td>
+                    </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="4" class="no-transactions">No transactions found.</td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+
+    <footer class="footer">
+        &copy; 2025 FMS. All Rights Reserved.
+    </footer>
+</body>
+</html>
