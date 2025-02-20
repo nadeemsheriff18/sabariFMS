@@ -7,11 +7,24 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
+
+<nav class="navbar">
+    <a href="/" class="logo">FMS</a>
+    <ul>
+       
+        <li><a href="/dashboard">Dashboard</a></li>
+        <li><a href="/transaction_history">Transaction History</a></li>
+<li><a href="/logout">Logout</a></li>
+    </ul>
+</nav>
+
     <div class="create-account-container">
         <h1>Create New Account</h1>
         <form action="/create_account" method="POST">
             <input type="text" name="account_name" placeholder="Account Name" required>
             <input type="number" name="initial_balance" placeholder="Initial Balance" required>
+            <input type="number" name="goal" placeholder="Set goal" required>
+
             <button type="submit">Create Account</button>
         </form>
     </div>

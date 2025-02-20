@@ -21,30 +21,114 @@
         }
     ],
     "testuser": [],
-    "sunil": [
-        {
-            "account_id": 1,
-            "account_name": "kl",
-            "balance": 606.0,
-            "transactions": [
+    "sunil": {
+        "accounts": [
+            {
+                "account_id": 1,
+                "account_name": "kl",
+                "balance": 656.0,
+                "Goal": 2000.0,
+                "transactions": [
+                    {
+                        "type": "deposit",
+                        "amount": 200.0,
+                        "timestamp": "2025-02-12 20:54",
+                        "date": "2025-02-17"
+                    },
+                    {
+                        "type": "deposit",
+                        "amount": 50.0,
+                        "timestamp": "2025-02-20 15:48",
+                        "date": "2025-01-17"
+                    },
+                    {
+                        "type": "withdraw",
+                        "amount": 100.0,
+                        "timestamp": "2025-02-20 17:35",
+                        "date": "2025-02-20"
+                    },
+                    {
+                        "type": "deposit",
+                        "amount": 100.0,
+                        "date": "2025-02-20",
+                        "timestamp": "2025-02-20 18:04"
+                    }
+                ]
+            },
+            {
+                "account_id": 2,
+                "account_name": "test",
+                "balance": 450.0,
+                "Goal": 2000.0,
+                "transactions": [
+                    {
+                        "type": "deposit",
+                        "amount": 250.0,
+                        "timestamp": "2025-02-12 21:24",
+                        "date": "2025-02-17"
+                    },
+                    {
+                        "type": "deposit",
+                        "amount": 100.0,
+                        "date": "2025-02-20",
+                        "timestamp": "2025-02-20 17:39"
+                    }
+                ]
+            },
+            {
+                "account_id": 3,
+                "account_name": "test3",
+                "balance": 2500.0,
+                "Goal": null
+            },
+            {
+                "account_id": 4,
+                "account_name": "test4",
+                "balance": 2025.0,
+                "Goal": 5000.0,
+                "transactions": [
+                    {
+                        "type": "deposit",
+                        "amount": 25.0,
+                        "timestamp": "2025-02-20 15:49"
+                    }
+                ]
+            },
+            {
+                "account_id": 5,
+                "account_name": "test",
+                "balance": 1000.0,
+                "Goal": 6000.0,
+                "transactions": []
+            }
+        ],
+        "monthly_expenses": {
+            "2025-02": [
                 {
-                    "type": "deposit",
-                    "amount": 100.0,
-                    "timestamp": "2025-02-12 20:54"
-                }
-            ]
-        },
-        {
-            "account_id": 2,
-            "account_name": "test",
-            "balance": 350.0,
-            "transactions": [
+                    "category": "dinner",
+                    "amount": 1000.0,
+                    "description": "dinner night",
+                    "date": "2025-02-17"
+                },
                 {
-                    "type": "deposit",
-                    "amount": 250.0,
-                    "timestamp": "2025-02-12 21:24"
+                    "category": "trip",
+                    "amount": 3500.0,
+                    "description": "goa",
+                    "date": "2025-02-17"
+                },
+                {
+                    "category": "july",
+                    "amount": 1000.0,
+                    "description": "test",
+                    "date": "2025-02-17"
+                },
+                {
+                    "category": "Shopping",
+                    "amount": 3000.0,
+                    "description": "max",
+                    "date": "2025-02-20"
                 }
             ]
         }
-    ]
+    }
 }

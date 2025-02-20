@@ -7,6 +7,15 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
+    <nav class="navbar">
+        <a href="/" class="logo">FMS</a>
+        <ul>
+           
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/transaction_history">Transaction History</a></li>
+    <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
     <div class="transactions-container">
         <h1>Manage Transactions for {{ account.account_name }}</h1>
         <p>Current Balance: Rs.{{ account.balance }}</p>

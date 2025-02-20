@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monthly Expenses</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="/" class="logo">FMS</a>
+        <ul>
+            
+            <li><a href="/dashboard">Dashboard</a></li>
+            <li><a href="/transaction_history">Transaction History</a></li>
+<li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+
+    <h1>Monthly Expense Tracker</h1>
+
+    <!-- Add Expense Form -->
+    <form method="POST" action="/met" class="met">
+        <div class="addexp">
+            <label for="category">Category</label>
+            <select id="category" name="category" class="category" required>
+                <option value="Outing">Outing</option>
+                <option value="Trip">Trip</option>
+                <option value="Family Time">Family Time</option>
+                <option value="Date">Date</option>
+                <option value="Restaurant">Restaurant</option>
+                <option value="Groceries">Groceries</option>
+                <option value="Entertainment">Entertainment</option>
+                <option value="Shopping">Shopping</option>
+                <option value="Healthcare">Healthcare</option>
+                <option value="Bills & Utilities">Bills & Utilities</option>
+                <option value="Education">Education</option>
+                <option value="Others">Others</option>
+            </select>
+        </div>
+        
+
+    <div class="addexp">
+        <label for="amount">Amount</label>
+        <input type="number" id="amount" name="amount" step="0.01" required>
+    </div>
+
+    <div class="addexp">
+        <label for="description">Description</label>
+        <input type="text" id="description" name="description" required>
+    </div>
+
+        <button type="submit" class="metButton">Add Expense</button>
+    </form>
+
+    <!-- Filter Expenses by Month -->
+    <form method="GET" action="/met" id="filter-form">
+        <label for="month">Select Month:</label>
+        <input type="month" id="month" name="month" value="{{ selected_month }}">
+        <button type="submit">Filter</button>
+    </form>
+
+    <h2>Expenses for {{ selected_month }}</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Amount</th>
+                <th>Description</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for expense in expenses %}
+                <tr>
+                    <td>{{ expense.category }}</td>
+                    <td>{{ expense.amount }}</td>
+                    <td>{{ expense.description }}</td>
+                    <td>{{ expense.date }}</td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="4">No expenses recorded for this month.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <form action="{{ url_for('analyze_met') }}" method="GET" id="filter-form">
+        <label for="month">Select Month:</label>
+        <input type="month" id="month" name="month" required>
+        <button type="submit">Analyze</button>
+    </form>
+    
+</body>
+</html>

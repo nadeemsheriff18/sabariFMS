@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Progress</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="progress-container">
+        <h1>Tracking Progress for {{ account.account_name }}</h1>
+        <p>Goal: Rs.{{ account.Goal }}</p>
+        <p>Current Balance: Rs.{{ account.balance }}</p>
+
+        <!-- Progress Bar -->
+        <div class="progress-bar">
+            <div class="progress" style="width: {{ progress_percentage }}%;">
+                {{ progress_percentage }}%
+            </div>
+        </div>
+
+        <!-- Encouraging Message -->
+        <p class="goal-message">{{ message }}</p>
+
+        <!-- Savings Trend Chart -->
+        <canvas id="savingsChart"></canvas>
+    </div>
+
+    <script>
+        // Chart Data
+        const ctx = document.getElementById('savingsChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: {{ months|tojson }},
+                datasets: [{
+                    label: 'Monthly Savings (Rs.)',
+                    data: {{ savings_data|tojson }},
+                    borderColor: 'blue',
+                    backgroundColor: 'lightblue',
+                    fill: true
+                }]
+            }
+        });
+    </script>
+</body>
+</html>

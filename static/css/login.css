@@ -1,0 +1,96 @@
+/* General Styles */
+body.authPage {
+    background-color: #f4f4f9;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Authentication Container */
+.auth-container {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 350px;
+}
+
+/* Tabs */
+.tabs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.tab-button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background-color: #ddd;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.tab-button.active {
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+}
+
+/* Tab Content */
+.tab-content {
+    display: block;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Form Styles */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Button Styles */
+.btn {
+    width: 100%;
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive */
+@media (max-width: 400px) {
+    .auth-container {
+        width: 90%;
+    }
+}

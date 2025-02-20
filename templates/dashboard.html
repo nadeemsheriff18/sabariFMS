@@ -10,8 +10,8 @@
     <nav class="navbar">
         <a href="/" class="logo">FMS</a>
         <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/create_account">Create Account</a></li>
+           
+            <li><a href="/dashboard">Dashboard</a></li>
             <li><a href="/transaction_history">Transaction History</a></li>
 <li><a href="/logout">Logout</a></li>
         </ul>
@@ -22,16 +22,18 @@
 
         <div class="actions">
             <a href="/create_account" class="btn">Create New Account</a>
+            <a href="/met" class="btn btn">Monthly Expense</a>
             <a href="/logout" class="btn btn-danger">Logout</a>
         </div>
 
-        <h2>Your Accounts</h2>
+        <h2>Your Savings Accounts</h2>
         <table class="accounts-table">
             <thead>
                 <tr>
                     <th>Account Name</th>
                     <th>Balance</th>
                     <th>Actions</th>
+                    <th>Goal</th>
                 </tr>
             </thead>
             <tbody>
@@ -45,7 +47,10 @@
                         <form action="{{ url_for('delete_account', account_id=account.account_id) }}" method="POST" style="display:inline;">
                             <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this account?');">Delete</button>
                         </form>
+                        <a href="/track_progress/{{ account.account_id }}" class="btn btn-success">Track Progress</a>
+
                     </td>
+                    <td>Rs.{{ account.Goal }}</td>
                 </tr>
                 {% endfor %}
             </tbody>
